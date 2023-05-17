@@ -34,6 +34,8 @@ DEBUG = env.bool("DEBUG", False)
 
 URL = env('URL')
 
+NETWORK_API_URL = "https://api.citybik.es/v2/networks/{}"
+
 ALLOWED_HOSTS = []
 
 
@@ -50,7 +52,7 @@ DJANGO_APPS = [
 ]
 
 LOCAL_APPS = [
-    
+	'network',
 ]
 
 THIRD_PARTY_APPS = [

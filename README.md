@@ -138,15 +138,18 @@ Para acceder al admin de Django se debe crear un superuser (o superusuario) con 
 
 4.- ejecutar las migracion
 
-        docker compose run --rm app python manage.py migrate
+        docker compose run --rm chr_app python manage.py migrate
 - Entrar al contendor para ejecutar manualmente
 
         docker exec -it chr_app sh
         python manage.py migrate
+- crear un app
+
+      python manage.py startapp book
 
 5.- crear un superusuario
 
-        docker compose run --rm app python manage.py createsuperuser 
+        docker compose run --rm chr_app python manage.py createsuperuser 
 - Entrar al contendor para ejecutar manualmente
 
         docker exec -it chr_app sh
