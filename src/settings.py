@@ -36,6 +36,8 @@ URL = env('URL')
 
 NETWORK_API_URL = "https://api.citybik.es/v2/networks/{}"
 
+SNIFA_URL = "https://snifa.sma.gob.cl{}"
+
 ALLOWED_HOSTS = []
 
 
@@ -53,10 +55,12 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
 	'network',
+	'snifa',
 ]
 
 THIRD_PARTY_APPS = [
 	'corsheaders',
+	'django_jsonform',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS

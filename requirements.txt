@@ -4,6 +4,7 @@ certifi==2023.5.7
 charset-normalizer==3.1.0
 Django==4.2.1
 django-cors-headers==4.0.0
+django-jsonform==2.17.0
 environs==9.5.0
 idna==3.4
 marshmallow==3.19.0

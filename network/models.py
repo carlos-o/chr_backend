@@ -77,12 +77,12 @@ class Payment(models.Model):
 
 class Extra(models.Model):
     stations = models.OneToOneField(Stations, related_name="stations_extra", on_delete=models.CASCADE)
-    uid = models.IntegerField(_("UID"), blank=False, null=False)
-    altitude = models.SmallIntegerField(blank=True, null=True)
+    uid = models.IntegerField(_("UID"), blank=True, null=True)
+    altitude = models.SmallIntegerField(default=0)
     ebikes = models.SmallIntegerField(default=0)
     has_ebikes = models.BooleanField(default=False)
     normal_bikes = models.SmallIntegerField(default=0)
-    address = models.CharField(max_length=255, blank=False, null=False)
+    address = models.CharField(max_length=255, blank=True, null=True)
     payment_terminal = models.BooleanField(default=False)
     slots = models.SmallIntegerField(default=0)
     returning = models.SmallIntegerField(default=0)

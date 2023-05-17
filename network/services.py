@@ -55,9 +55,9 @@ def store_network_from_api(network_id: str) -> dict:
                 extra_obj = station.get('extra')
                 extra = Extra.objects.create(
                     stations=station_obj,
-                    uid=int(extra_obj.get('uid')),
-                    address=extra_obj.get('address'),
-                    slots=extra_obj.get('slots'),
+                    uid=None if extra_obj.get('uid') is None else int(extra_obj.get('uid')) ,
+                    address=None if extra_obj.get('address') is None else extra_obj.get('address'),
+                    slots= 0 if extra_obj.get('slots') is None else extra_obj.get('slots'),
                     altitude=0 if extra_obj.get('altitude') is None else extra_obj.get('altitude'),
                     ebikes=0 if extra_obj.get('ebikes') is None else extra_obj.get('ebikes'),
                     has_ebikes=False if extra_obj.get('has_ebikes') is None else extra_obj.get('has_ebikes'),

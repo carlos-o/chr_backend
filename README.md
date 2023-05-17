@@ -136,24 +136,32 @@ Para acceder al admin de Django se debe crear un superuser (o superusuario) con 
 
         docker compose up
 
-4.- ejecutar las migracion
-
-        docker compose run --rm chr_app python manage.py migrate
-- Entrar al contendor para ejecutar manualmente
-
-        docker exec -it chr_app sh
-        python manage.py migrate
-- crear un app
-
-      python manage.py startapp book
-
-5.- crear un superusuario
-
-        docker compose run --rm chr_app python manage.py createsuperuser 
-- Entrar al contendor para ejecutar manualmente
+4.- crear un superusuario para entrar al admin
 
         docker exec -it chr_app sh
         python manage.py createsuperuser
 
-# NOTA
+### **Paso 6. insercion de datos**
 
+1.- para llenar la tablas de la app de network es necesario conocer el id del objeto network a guardar
+
+       http://localhost:8000/network/bikerio 
+llamando a la siguiente url se puede insertar los datos en las tablas correspondientes.
+
+El servidor respondera acorde si existe o no el obejeto en la base de datos.
+
+2.- ejecutar comando para la ejecucion del scraper y creación del json
+* inicialmente se debera entrar al contendor 
+
+        docker exec -it chr_app sh
+        python manage.py scraper
+ con este comando se realizar el proceso de obtener los datos de la pagina [snifa](https://snifa.sma.gob.cl/Sancionatorio/Resultado)
+para luego almacenarlos en una json.
+
+* Ejecutar el siguente comando para almacenar la informacion
+
+        python manage.py jsonstore
+para almacenar los datos obtenido en el scrpaer en la tabla correspondiente.
+
+# NOTA
+* Todos los modelos se pueden consultar en el administrador de django es necesario crear un superuser para visuralizar

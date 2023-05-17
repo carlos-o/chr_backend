@@ -119,3 +119,6 @@ data/
 
 # enviroment
 .env
+
+# json
+*.json
